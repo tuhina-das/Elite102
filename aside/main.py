@@ -1,3 +1,5 @@
+import functions
+
 user = "";
 passW = "";
 
@@ -43,7 +45,7 @@ def login(userName, userPass):
     # using the userName and userPass supplied, call a select query
     # if null is returned, display an incorrect login msg
     # else, save the user's userName and pass
-    if (userName=='bob' and userPass == 'huhu'):
+    if (userName=='username' and userPass == 'password'):
         user = userName;
         passW = userPass;
         print("\n")
@@ -63,5 +65,6 @@ while (isloggingIn):
     userInput2 = input("Password: ")
     if (login(userInput1, userInput2)==True):
        isloggingIn=False
+       functions.checkBalance(1)
        
-option()
+# option()
