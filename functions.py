@@ -70,8 +70,19 @@ def changeBalance(uid, isDeposit):
 
 
 # # creating a new acc
-# def createAccount(uid):
-    
+def createAccount(uid):
+    accName = input(f"What would you like to name this account? >>>> ")
+    startAmt = 0
+    if (input("Would you like to make a starting deposit for this new account (Y or N)? >>>> ") == 'Y'):
+        startAmt = float("{:.2f}".format(float(input("Please specify an amount >>>> "))))
+    connection = mysql.connector.connect(user = 'root', database = 'c2c_bank', password = '')
+    cursor = connection.cursor()
+    cursor.execute(f"INSERT INTO Checking_Accounts(uid, balance, name) VALUES({uid}, {startAmt}, '{accName}')")
+    myresult = cursor.fetchall()
+    print(myresult)
+    cursor.close()
+    connection.commit()
+    connection.close()
 
 # # deleting acc
 

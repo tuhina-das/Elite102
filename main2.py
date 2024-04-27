@@ -34,7 +34,7 @@ def menu(uid):
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==3):
-            print("Create a new account")
+            functions.createAccount(uid)
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==4):
