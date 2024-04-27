@@ -25,19 +25,26 @@ def menu(uid):
         elif (userInput==1):
             print("\n\n----------------\nYour accounts:")
             functions.checkBalance(uid)
-            isDeciding=False
+            isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
+            isDeciding=isExiting
         elif (userInput==2):
-            print("Make a withdrawal/deposit")
-            isDeciding=False
+            isDeposit = input("Would you like to make a deposit (D) or a withdrawal (W)? >>> ")
+            print("\n\n----------------\nYour accounts:")
+            functions.changeBalance(uid, (isDeposit=='D'))
+            isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
+            isDeciding=isExiting
         elif (userInput==3):
             print("Create a new account")
-            isDeciding=False
+            isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
+            isDeciding=isExiting
         elif (userInput==4):
             print("Edit an account")
-            isDeciding=False
+            isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
+            isDeciding=isExiting
         elif (userInput==5):
             print("Delete an account")
-            isDeciding=False
+            isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
+            isDeciding=isExiting
 
 #---------------- MAIN SEQUENCE ----------------
 print("\n----------------------------------------------------------------")

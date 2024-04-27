@@ -1,3 +1,5 @@
-import unittest
+# import unittest
+import functions
 
-class TestIsLogin(unittest.TestCase):
+functions.changeBalance(1, True)
+
