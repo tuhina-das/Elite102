@@ -42,9 +42,11 @@ def menu(uid):
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==5):
-            print("Delete an account")
+            print("\n\n----------------\nYour accounts:")
+            functions.deleteAccount(uid)
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
+    print("Thank you for using our app. Have a lovely day!")
 
 #---------------- MAIN SEQUENCE ----------------
 print("\n----------------------------------------------------------------")
