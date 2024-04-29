@@ -1,6 +1,7 @@
 import functions
 import mysql.connector
 import time
+import os
 
 # login function
 def login(userName, userPass):
@@ -15,7 +16,7 @@ def login(userName, userPass):
         return True
 
 # main menu function
-def menu(uid):
+def menu(uid, name):
     isDeciding = True
     while (isDeciding):
         print("Your options are:\n----------------\n1.) Check my balance\n2.) Make a withdrawal/deposit\n3.) Create a new account\n4.) Edit account details\n5.) Delete an account\n6.) Quit\n----------------\n")
@@ -23,30 +24,42 @@ def menu(uid):
         if (userInput==6):
             isDeciding=False
         elif (userInput==1):
+            os.system('clear')
             print("\n\n----------------\nYour accounts:")
             functions.checkBalance(uid)
+            os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==2):
+            os.system('clear')
             isDeposit = input("Would you like to make a deposit (D) or a withdrawal (W)? >>> ")
             print("\n\n----------------\nYour accounts:")
             functions.changeBalance(uid, (isDeposit=='D'))
+            os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==3):
+            os.system('clear')
             functions.createAccount(uid)
+            os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==4):
-            print("Edit an account")
+            os.system('clear')
+            print("\n\n----------------\nYour accounts:")
+            functions.updateAccount(uid, name)
+            os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==5):
+            os.system('clear')
             print("\n\n----------------\nYour accounts:")
             functions.deleteAccount(uid)
+            os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
-    print("Thank you for using our app. Have a lovely day!")
+    os.system('clear')
+    print("Thank you for using our app. Have a lovely day!\n\n")
 
 #---------------- MAIN SEQUENCE ----------------
 print("\n----------------------------------------------------------------")
@@ -67,12 +80,9 @@ while (isLoggingIn):
         uid = cursor.fetchall()[0][0]
         cursor.execute(f"SELECT first_name FROM Users WHERE uid = {uid}")
         name = cursor.fetchall()[0][0]
+        os.system('clear')
         print(f"Welcome, {name}! What would you like to do today?")
-        menu(uid)
+        menu(uid, name)
     else: 
         print("Unsuccessful login, try again.")
-        # TODO: option to exit
-        # x = input("Would you like to try again? (Y or N) >>> ")
-        # if (x=='Y'):
-        #     return 
         
