@@ -25,7 +25,7 @@ def checkBalance(uid):
         chosenAccount = int(input("\nPick an account (1, 2, 3, etc.) >>>> "))
         # once the user has chosen an account, use sql to retrieve and format the data of that account
         if (chosenAccount > 0 and chosenAccount <= len(myresult)):
-            os.system('clear')
+            # os.system('clear')
             print("Checking balance...")
             time.sleep(2)
             cursor.execute(f"SELECT balance FROM Checking_Accounts WHERE name='{myresult[chosenAccount-1][0]}' AND uid={uid}")

@@ -27,6 +27,7 @@ def menu(uid, name):
             os.system('clear')
             print("\n\n----------------\nYour accounts:")
             functions.checkBalance(uid)
+            time.sleep(5)
             os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
@@ -35,12 +36,14 @@ def menu(uid, name):
             isDeposit = input("Would you like to make a deposit (D) or a withdrawal (W)? >>> ")
             print("\n\n----------------\nYour accounts:")
             functions.changeBalance(uid, (isDeposit=='D'))
+            time.sleep(5)
             os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
         elif (userInput==3):
             os.system('clear')
             functions.createAccount(uid)
+            time.sleep(5)
             os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
@@ -48,6 +51,7 @@ def menu(uid, name):
             os.system('clear')
             print("\n\n----------------\nYour accounts:")
             functions.updateAccount(uid, name)
+            time.sleep(5)
             os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
@@ -55,6 +59,7 @@ def menu(uid, name):
             os.system('clear')
             print("\n\n----------------\nYour accounts:")
             functions.deleteAccount(uid)
+            time.sleep(5)
             os.system('clear')
             isExiting = True if input("\nWould you like to do anything else? (Y or N) >>> ")=='Y' else False
             isDeciding=isExiting
